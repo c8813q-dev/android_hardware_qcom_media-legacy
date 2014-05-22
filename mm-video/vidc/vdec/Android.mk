@@ -102,18 +102,20 @@ include $(CLEAR_VARS)
 
 mm-vdec-test-inc    := hardware/qcom/media-legacy/mm-core/inc
 mm-vdec-test-inc    += $(LOCAL_PATH)/inc
-#mm-vdec-test-inc    += bionic/libc/kernel/common/linux
+mm-vdec-test-inc    += $(TARGET_OUT_INTERMEDIATES)/KERNEL_OBJ/usr/include
 
 LOCAL_MODULE                    := mm-vdec-omx-test
-LOCAL_MODULE_TAGS               := optional
+LOCAL_MODULE_TAGS               := debug
 LOCAL_CFLAGS                    := $(libOmxVdec-def)
 LOCAL_C_INCLUDES                := $(mm-vdec-test-inc)
 
 LOCAL_PRELINK_MODULE      := false
-LOCAL_SHARED_LIBRARIES    := libutils libOmxCore libOmxVdec libbinder
+LOCAL_SHARED_LIBRARIES    := libutils libOmxCore libOmxVdec libbinder libcutils
 
 LOCAL_SRC_FILES           := src/queue.c
 LOCAL_SRC_FILES           += test/omx_vdec_test.cpp
+
+LOCAL_ADDITIONAL_DEPENDENCIES  := $(TARGET_OUT_INTERMEDIATES)/KERNEL_OBJ/usr
 
 include $(BUILD_EXECUTABLE)
 
