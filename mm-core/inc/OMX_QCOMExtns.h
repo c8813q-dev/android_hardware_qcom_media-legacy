@@ -590,6 +590,12 @@ typedef struct OMX_QCOM_ASPECT_RATIO
    OMX_U32 aspectRatioY;
 } OMX_QCOM_ASPECT_RATIO;
 
+typedef struct OMX_QCOM_DISPLAY_ASPECT_RATIO
+{
+   OMX_U32 displayVerticalSize;
+   OMX_U32 displayHorizontalSize;
+} OMX_QCOM_DISPLAY_ASPECT_RATIO;
+
 typedef struct OMX_QCOM_FRAME_PACK_ARRANGEMENT
 {
   OMX_U32 nSize;
